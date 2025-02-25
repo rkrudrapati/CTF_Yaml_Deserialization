@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML to JSON Converter</title>
+</head>
+<body>
+    <h1>Convert YAML Content to JSON</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/convert" method="POST">
+        <label for="yaml_content">Enter YAML content:</label><br>
+        <textarea name="yaml_content" id="yaml_content" rows="15" cols="100" placeholder="Paste your YAML content here"></textarea><br>
+        <input type="submit" value="Convert to JSON">
+    </form>
+</body>
+</html>
